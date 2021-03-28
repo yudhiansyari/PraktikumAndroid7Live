@@ -4,18 +4,25 @@ import UserData
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.ydh.praktikumandroid7.databinding.ItemRowUserBinding
 
 
 class ListUserAdapter(private val listUser: ArrayList<UserData>) : RecyclerView.Adapter<ListUserAdapter.ListViewHolder>() {
 
     class ListViewHolder(private val binding: ItemRowUserBinding) : RecyclerView.ViewHolder(binding.root) {
-     fun bind(userData: UserData){
-         with(binding){
-             tvItemName.text = userData.first_name + " " + userData.last_name
-             tvItemEmail.text = userData.email
+        fun bind(userData: UserData) {
+            with(binding){
+                tvItemName.text = userData.first_name + " " + userData.last_name
+                tvItemEmail.text = userData.email
+
+                Glide.with(itemView.context)
+                    .load(userData.avatar)
+                    .apply(RequestOptions().override(55, 55))
+                    .into(ivItemAvatar)
             }
-         }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {

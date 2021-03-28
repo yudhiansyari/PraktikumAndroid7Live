@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ydh.praktikumandroid7.databinding.ActivityUserBinding
 
+
 class UserActivity : AppCompatActivity() {
 
     private lateinit var binding:ActivityUserBinding
@@ -39,4 +40,9 @@ class UserActivity : AppCompatActivity() {
         })
     }
 }
+
+
+
+
+
 
